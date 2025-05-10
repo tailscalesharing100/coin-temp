@@ -14,7 +14,7 @@ function App() {
   return (
     <div className="app">
       <nav className="navbar">
-        <div className="logo">$COIN</div>
+        <div className="logo">$COIN SEX</div>
         <div className="nav-links">
           <a href="#tokenomics">Tokenomics</a>
           <a href="#roadmap">Roadmap</a>
