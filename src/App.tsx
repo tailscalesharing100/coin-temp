@@ -37,7 +37,7 @@ function App() {
       {showShader && (
         <iframe 
           id="shader-iframe"
-          src="https://www.shadertoy.com/embed/Mtd3DB?gui=false&t=0&paused=false&muted=false"
+          src="https://www.shadertoy.com/embed/3lsSzf?gui=false&t=0&paused=false&muted=false"
           style={{
             width: '100%',
             height: '100%',
