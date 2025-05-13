@@ -19,7 +19,7 @@ function App() {
       </div>
       
       <audio ref={audioRef} loop hidden>
-        <source src="/bg.mp3" type="audio/mpeg" />
+        <source src="public/bg.mp3" type="audio/mpeg" />
         Your browser does not support the audio element.
       </audio>
 
@@ -29,7 +29,7 @@ function App() {
             className="interest-button"
             onClick={handleClick}
           >
-            Are you interested?
+            PAJEET
           </button>
         </div>
       )}
