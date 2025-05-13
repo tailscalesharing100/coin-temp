@@ -1,15 +1,27 @@
-import { useState, useRef } from 'react'
+import { useState, useRef, useEffect } from 'react'
 import './App.css'
 
 function App() {
   const [showShader, setShowShader] = useState(false);
+  const [isIframeLoaded, setIsIframeLoaded] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
   const audioRef = useRef<HTMLAudioElement>(null);
 
   const handleClick = () => {
+    setIsLoading(true);
     setShowShader(true);
-    if (audioRef.current) {
-      audioRef.current.play();
-    }
+    
+    // Start loading animation and iframe
+    setTimeout(() => {
+      if (audioRef.current) {
+        audioRef.current.play();
+      }
+      setIsLoading(false);
+    }, 2000);
+  };
+
+  const handleIframeLoad = () => {
+    setIsIframeLoaded(true);
   };
 
   return (
@@ -34,6 +46,12 @@ function App() {
         </div>
       )}
 
+      {isLoading && (
+        <div className="loading-overlay">
+          <div className="loading-spinner"></div>
+        </div>
+      )}
+
       {showShader && (
         <iframe 
           id="shader-iframe"
@@ -46,9 +64,10 @@ function App() {
             left: 0,
             zIndex: 1,
             pointerEvents: 'none',
-            opacity: 1,
+            opacity: isIframeLoaded ? 1 : 0,
             transition: 'opacity 1s'
           }}
+          onLoad={handleIframeLoad}
           allow="autoplay; fullscreen; xr-spatial-tracking"
           allowFullScreen
         />
